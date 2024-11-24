@@ -1,0 +1,181 @@
+<section class="header-inner bg-dark text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 ">
+
+        <h2 class="inner-banner-title">Profile</h2>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section profile" style="margin-top:100px; margin-bottom:100px; margin-right:50px; margin-left:50px">
+  <div class="row">
+    <div class="col-xl-4">
+
+      <div class="card">
+        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+
+          <img src="https://localhost:7208/api/UserProfile/getImages/{{ userProfile?.image }}" alt="Profile" class="rounded-circle" style="height:250px; width:250px">
+          <h2>{{ userProfile?.userName }}</h2>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-xl-8">
+
+      <div class="card">
+        <div class="card-body pt-3">
+          <!-- Bordered Tabs -->
+          <ul class="nav nav-tabs nav-tabs-bordered">
+
+            <li class="nav-item">
+              <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
+            </li>
+
+            <!--<li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+            </li>-->
+
+            <li class="nav-item">
+              <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Applications</button>
+            </li>
+
+          </ul>
+          <div class="tab-content pt-2">
+
+            <div class="tab-pane fade show active profile-overview" id="profile-overview">
+              <br />
+              <div *ngIf="userProfile" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+
+                <h5 class="card-title" style="margin-top:20px">Profile Details</h5>
+                <br />
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label" style="font-size:large; margin-left:100px">Username:</div>
+                  <div class="col-lg-9 col-md-8" style="font-size:large; margin-left:-100px">{{ userProfile?.userName }}</div>
+                </div>
+                <br />
+                <div class="row">
+                  <div class="col-lg-3 col-md-4 label" style="font-size:large; margin-left:100px">Email:</div>
+                  <div class="col-lg-9 col-md-8" style="font-size:large; margin-left:-100px">{{ userProfile?.email }}</div>
+                </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+
+                <form *ngIf="userProfile" #UpdateForm="ngForm" (ngSubmit)="updateProfile(UpdateForm.value)" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+                  <input type="hidden" name="__RequestVerificationToken" value="TOKEN_VALUE">
+
+                  <div class="form-container">
+                    <!-- Main Image Field -->
+                    <div class="form-group" style="margin-bottom: 15px;">
+                      <label for="Image" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Main Image</label>
+                      <input type="file" (change)="onImageSelected($event)" class="form-control" />
+                      <span class="text-danger" id="Image-error" style="color: red; font-size: 0.875em;"></span>
+                    </div>
+
+
+                    <!-- Username Field -->
+                    <div class="form-group" style="margin-bottom: 15px;">
+                      <label for="username" class="form-label" style="font-weight: bold;">Username</label>
+                      <input type="text" id="username" name="userName" [(ngModel)]="userProfile.userName" class="form-control" placeholder="Enter your username" required />
+                      <div *ngIf="UpdateForm.controls['username']?.invalid && (UpdateForm.controls['username']?.dirty || UpdateForm.controls['username']?.touched)" class="text-danger">
+                        Please enter a valid username
+                      </div>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group" style="margin-bottom: 15px;">
+                      <label for="email" class="form-label" style="font-weight: bold;">Email</label>
+                      <input type="email" id="email" name="email" [(ngModel)]="userProfile.email" class="form-control" placeholder="Enter your email" required />
+                      <div *ngIf="UpdateForm.controls['email']?.invalid && (UpdateForm.controls['email']?.dirty || UpdateForm.controls['email']?.touched)" class="text-danger">
+                        Please enter a valid Email.
+                      </div>
+                    </div>
+
+
+                    <!-- Submit Buttons -->
+                    <div class="form-group" style="text-align: center;">
+                      <button type="submit" class="btn btn-primary" style="padding: 10px 20px;" [disabled]="UpdateForm.invalid">Save</button>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+
+              <div class="tab-pane fade pt-3" id="profile-settings">
+
+                <!-- Settings Form -->
+
+                <div *ngIf="userProfile" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+
+                  <table class="styled-table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th>Animal Picture</th>
+                        <th>Animal Name</th>
+                        <th>Application Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let app of userApps">
+                        <td>
+                          <img src="https://localhost:7208/{{app?.imageUrl }}" alt="Animal Picture" class="rounded-circle">
+                        </td>
+                        <td>{{ app.name }}</td>
+                        <td>{{ app.status }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+                <!-- End settings Form -->
+
+              </div>
+
+              <div class="tab-pane fade pt-3" id="profile-change-password">
+                <!-- Change Password Form -->
+
+                <form>
+                  <div class="row mb-3">
+                    <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="password" type="password" class="form-control" id="currentPassword">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="newpassword" type="password" class="form-control" id="newPassword">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
+                    <div class="col-md-8 col-lg-9">
+                      <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                    </div>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Change Password</button>
+                  </div>
+                </form><!-- End Change Password Form -->
+
+              </div>
+
+            </div><!-- End Bordered Tabs -->
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

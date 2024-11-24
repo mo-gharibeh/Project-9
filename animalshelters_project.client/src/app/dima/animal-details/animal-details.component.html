@@ -1,0 +1,41 @@
+<section class="header-inner bg-dark text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 ">
+
+        <h2 class="inner-banner-title">Animal Details</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div *ngIf="AnimalDetails" class="animal-details">
+  <img src="https://localhost:7208{{AnimalDetails.animalImage}}" alt="{{ AnimalDetails.animalName }}" class="animal-image">
+
+  <div class="animal-info">
+    <h2>{{ AnimalDetails.animalName }}</h2>
+    <p><strong>Breed:</strong> {{ AnimalDetails.animalBreed }}</p>
+    <p><strong>Size:</strong> {{ AnimalDetails.animalSize }}</p>
+    <p><strong>Age:</strong> {{ AnimalDetails.animalAge }}</p>
+    <p><strong>Temperament:</strong> {{ AnimalDetails.animalTemperament }}</p>
+    <p><strong>Special Needs:</strong> {{ AnimalDetails.animalSpecialNeeds }}</p>
+    <p><strong>Adoption Status:</strong> {{ AnimalDetails.animaladoptionStatus }}</p>
+  </div>
+
+  <div class="shelter-info">
+    <h3>Shelter Information</h3>
+    <p><strong>Shelter Name:</strong> {{ AnimalDetails.shelterName }}</p>
+    <p><strong>Email:</strong> {{ AnimalDetails.shelterEmail }}</p>
+    <p><strong>Address:</strong> {{ AnimalDetails.shelterAddress }}</p>
+    <p><strong>Verified:</strong> {{ AnimalDetails.shelterVerified ? 'Yes' : 'No' }}</p>
+  </div>
+
+  <div class="adoption-section">
+    <a class="adopt-button"  [routerLink]="['/adoptionForm', AnimalDetails. animalId]">
+      Adopt {{ AnimalDetails.animalName }}
+    </a>
+  </div>
+</div>

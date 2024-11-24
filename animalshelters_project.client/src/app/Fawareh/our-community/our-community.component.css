@@ -1,0 +1,251 @@
+.post-container {
+  max-width: 40%;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-image img {
+  width: 100%;
+  height: auto;
+}
+
+.post-info {
+  padding: 15px;
+}
+
+.post-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.post-bio p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like-button, .comment-button {
+  background-color: #214d63;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comments-section {
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+
+.comment-box textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.comment {
+  margin-bottom: 5px;
+}
+
+.comment-user {
+  font-weight: bold;
+}
+
+.post-content{
+    padding: 20px;
+}
+
+.post-header {
+  padding: 10px;
+}
+
+
+
+/**/
+/* General comment section styling */
+.comments-section {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Comment Box styling */
+.comment-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+  .comment-box textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-size: 14px;
+  }
+
+  .comment-box button {
+    align-self: flex-end;
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: steelblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+    .comment-box button:disabled {
+      background-color: #aaa;
+    }
+
+/* Existing comments styling */
+.comment-list {
+  margin-top: 10px;
+}
+
+.comment {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.comment-user {
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.comment-text {
+  font-size: 14px;
+  color: #555;
+}
+
+
+
+/* Replies styling */
+.reply-list {
+  margin-left: 30px; /* Indent replies */
+  margin-top: 10px;
+}
+
+.reply {
+  margin-bottom: 10px;
+  padding: 6px;
+  border-left: 2px solid #ddd; /* A left border to differentiate replies */
+}
+
+.reply-user {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 3px;
+  display: block;
+}
+
+.reply-text {
+  font-size: 13px;
+  color: #777; /* Slightly lighter color than comments */
+}
+
+
+
+
+/* Reply Box styling */
+.reply-box {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+  .reply-box textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-size: 13px;
+  }
+
+  .reply-box button {
+    align-self: flex-end;
+    margin-top: 5px;
+    padding: 4px 8px;
+    background-color: steelblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+    .reply-box button:disabled {
+      background-color: #aaa;
+    }
+
+
+
+
+
+.fab-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: steelblue;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+  .fab-button:hover {
+    background-color: darkblue;
+  }
+
+
+
+
+.share-btn {
+  background-color: #4267B2;
+  text-align:center;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mewo{
+    margin-left: 5px;
+}
+
+
+
+.share-btn:hover {
+  background-color: #365899;
+}
+
+

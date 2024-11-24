@@ -1,0 +1,6 @@
+@AnimalShelters_Project.Server_HostAddress = http://localhost:5228
+
+GET {{AnimalShelters_Project.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

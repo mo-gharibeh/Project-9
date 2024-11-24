@@ -1,0 +1,86 @@
+<div class="container">
+  <h1>Animal Adoption Form</h1>
+
+  <form [formGroup]="myform" (ngSubmit)="FormSubmit()">
+    <!-- User Section -->
+    <fieldset>
+      <legend>User Information</legend>
+
+      <div class="form-row">
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" name="userName" required readonly [value]="UserData?.userName">
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required readonly [value]="UserData?.email">
+      </div>
+    </fieldset>
+
+    <!-- Animal Section -->
+    <fieldset>
+      <legend>Animal Information</legend>
+
+      <div class="form-row">
+        <label for="animalName">Animal Name:</label>
+        <input type="text" id="animalName" name="animalName" required readonly [value]="AnimalDetails?.animalName">
+      </div>
+
+      <div class="form-row">
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" required readonly [value]="AnimalDetails?.animalBreed">
+      </div>
+
+      <div class="form-row">
+        <label for="size">Size:</label>
+        <input type="text" id="size" name="size" readonly [value]="AnimalDetails?.animalSize">
+      </div>
+
+      <div class="form-row">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" readonly [value]="AnimalDetails?.animalAge">
+      </div>
+
+      <div class="form-row">
+        <label for="temperament">Temperament:</label>
+        <input type="text" id="temperament" name="temperament" readonly [value]="AnimalDetails?.animalTemperament">
+      </div>
+
+      <div class="form-row">
+        <label for="specialNeeds">Special Needs:</label>
+        <input type="text" id="specialNeeds" name="specialNeeds" readonly [value]="AnimalDetails?.animalSpecialNeeds">
+      </div>
+    </fieldset>
+
+    <!-- Shelter Section -->
+    <fieldset>
+      <legend>Shelter Information</legend>
+
+      <div class="form-row">
+        <label for="shelterName">Shelter Name:</label>
+        <input type="text" id="shelterName" name="shelterName" required readonly [value]="AnimalDetails?.shelterName">
+      </div>
+
+      <div class="form-row">
+        <label for="shelterEmail">Shelter Email:</label>
+        <input type="email" id="shelterEmail" name="shelterEmail" required readonly [value]="AnimalDetails?.shelterEmail">
+      </div>
+
+      <div class="form-row">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required readonly [value]="AnimalDetails?.shelterAddress">
+      </div>
+    </fieldset>
+
+    <!-- Adoption Notes Section -->
+    <fieldset>
+      <legend>Adoption Notes</legend>
+      <div class="form-row">
+        <label for="adoptionNotes">Why do you want to adopt this animal?</label>
+        <textarea id="adoptionNotes" formControlName="adoptionNotes" required></textarea>
+      </div>
+    </fieldset>
+
+    <button type="submit">Submit Adoption Form</button>
+  </form>
+</div>

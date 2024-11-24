@@ -1,0 +1,71 @@
+.header-inner {
+  padding: 100px 0;
+  background-image: linear-gradient(to bottom right, #333, #111);
+}
+
+.inner-banner-title {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.team {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  .team:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+.team-image img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*.team-detail {
+  padding: 20px 0;
+}
+
+.team-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+}
+
+.team-label {
+  font-size: 16px;
+  color: #888;
+}
+
+.team-social ul {
+  padding: 0;
+  list-style: none;
+  margin: 15px 0 0 0;
+}*/
+
+  /*.team-social ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }*/
+/*
+.social-link {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #333;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+  .social-link:hover {
+    transform: scale(1.1);
+  }
+*/
+/*.text-center {
+  text-align: center;
+}*/

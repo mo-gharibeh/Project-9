@@ -1,0 +1,33 @@
+<div class="admin-posts-container">
+  <h2>Manage Posts</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Image</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts">
+        <td>{{ post.id }}</td>
+        <td>{{ post.title }}</td>
+        <td>{{ post.content }}</td>
+        <td><img src="https://localhost:7208/api/Fawareh/getImage/{{ post.image }}" alt="Post Image" class="post-image"></td>
+        <td>
+          <span class="accepted-status" *ngIf="post.flag">Published</span>
+          <span class="rejected-status" *ngIf="!post.flag">Unpublished</span>
+        </td>
+        <td>
+          <button (click)="togglePostStatus(post.id)" class="toggle-btn">
+            {{ post.flag ? 'Unpublish' : 'Publish' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

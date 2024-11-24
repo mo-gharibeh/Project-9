@@ -1,0 +1,27 @@
+.section-title {
+  margin-bottom: 50px;
+}
+
+.service-box {
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+  .service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+.service-icon {
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.service-description {
+  color: #555;
+}

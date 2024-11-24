@@ -1,0 +1,54 @@
+<main>
+
+
+
+  <!-- Bootstrap container to center and structure content -->
+  <div class="container mt-4">
+
+    <!-- Optional heading for the section -->
+    <h2 class="text-center mb-4">All Animals</h2>
+    <button class="btn btn-success btn-sm" [routerLink]="['/adminDashBoard/AddAnimals']">Add new Animal</button>
+
+    <div class="table-responsive mx-auto" style="max-width: 900px;">
+      <table class="table table-light table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Breed</th>
+            <th>Age</th>
+            <th>Size</th>
+            <th>Temperament</th>
+            <th>Special Needs</th>
+            <th>Adoption Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+         
+          <tr *ngFor="let item of Array; let i = index">
+          
+            <th scope="row">{{ item.animalId }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{item.breed}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.size}}</td>
+            <td>{{item.temperament}}</td>
+            <td>{{item.specialNeeds}}</td>
+            <td>{{item.adoptionStatus}}</td>
+            <td>
+            
+              <button class="btn btn-primary btn-sm" [routerLink]="['/adminDashBoard/UpdateAnimal', item.animalId]">
+                Edit
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteAnimal(item.animalId)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

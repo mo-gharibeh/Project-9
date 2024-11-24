@@ -1,0 +1,90 @@
+.animal-details {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.animal-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.animal-info,
+.shelter-info {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+  .animal-info h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .animal-info p,
+  .shelter-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin: 10px 0;
+  }
+
+    .animal-info p strong,
+    .shelter-info p strong {
+      color: #333;
+      font-weight: 600;
+    }
+
+  .shelter-info h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+.shelter-info {
+  background-color: #f5f5f5;
+}
+.adopt-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+  .adopt-button:hover {
+    background-color: #218838;
+  }
+
+.adoption-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .animal-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .animal-image {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,57 @@
+<section class="header-inner bg-dark text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 ">
+
+        <h2 class="inner-banner-title">Animals</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="page-container">
+  <div class="filter-container">
+    <div class="form-group">
+      <label for="breedFilter">Filter by Breed:</label>
+      <input type="text" id="breedFilter" [(ngModel)]="breedFilter" class="form-control" placeholder="Enter breed" />
+    </div>
+
+    <div class="form-group">
+      <label for="minAgeFilter">Min Age:</label>
+      <input type="number" id="minAgeFilter" [(ngModel)]="minAgeFilter" class="form-control" placeholder="Enter minimum age" />
+    </div>
+
+    <div class="form-group">
+      <label for="maxAgeFilter">Max Age:</label>
+      <input type="number" id="maxAgeFilter" [(ngModel)]="maxAgeFilter" class="form-control" placeholder="Enter maximum age" />
+    </div>
+
+    <button class="btn btn-primary" (click)="applyFilters()">Apply Filters</button>
+</div>
+
+
+
+    <div class="animal-container">
+      <div *ngFor="let animal of filteredAnimals" class="animal-card">
+        <div class="card">
+          <img src="https://localhost:7208{{animal.imageUrl}}" alt="{{animal.name}} Image" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ animal.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ animal.breed }} - Age: {{ animal.age }}</h6>
+            <p class="card-text">
+              <strong>Size:</strong> {{ animal.size }}<br>
+              <strong>Temperament:</strong> {{ animal.temperament }}<br>
+              <strong>Special Needs:</strong> {{ animal.specialNeeds }}<br>
+              <strong>Adoption Status:</strong> {{ animal.adoptionStatus }}<br>
+
+            </p>
+            <div class="card-actions">
+              <button class="btn btn-primary">Adopt Me</button>
+              <a class="btn btn-secondary" [routerLink]="['/animalDetails', animal.animalId]">More Info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+

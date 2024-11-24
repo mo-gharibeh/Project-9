@@ -1,0 +1,110 @@
+<!-- Header Section with Pet Background -->
+<header style="background-image: url('your-pet-background.jpg'); background-size: cover; background-position: center; height: 300px; position: relative;">
+  <div style="background-color: steelblue; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1 style="color: white; font-size: 3rem; text-align: center;">Our Success Stories</h1>
+
+    <button (click)="navigateToAddPage()" class="btn btn-primary">
+      <i class="fa fa-plus"></i> Add Post
+    </button>
+  </div>
+
+
+
+</header>
+
+@for (item of posts; track item.id)
+{
+<div class="post-container">
+  <!-- Post -->
+  <div class="post">
+    <!-- Post Info (Username and Title) -->
+    <div class="post-header">
+      <h3 class="post-username">{{item.userName}}</h3>
+      <p class="post-title">{{item.title}}</p>
+    </div>
+
+    <!-- Post Image -->
+    <div class="post-image">
+      <img src="https://localhost:7208/api/Fawareh/getImage/{{item.image}}" alt="Post Image">
+    </div>
+
+    <!-- Post Content -->
+    <div class="post-content">
+      <p>{{item.content}}.</p>
+    </div>
+
+    <!-- Post Info (Likes and Comments) -->
+    <div class="post-info">
+      <div class="post-stats">
+        @if(item.likesCount == null) {
+        <span class="likes">❤️ 0 likes</span>
+        }
+        @else {
+        <span class="likes">❤️ {{item.likesCount}} likes</span>
+        }
+
+        <!--<span class="comments" (click)="toggleCommentBox(item.id)">💬 .. comments </span>-->
+      </div>
+
+      <!-- Interaction Buttons -->
+      <div class="post-actions">
+
+        <button (click)="addLike(item.id)" class="like-button">❤️ {{ status.flag ? 'Unlike' : 'Like' }}</button>
+
+        
+          
+    
+        <div >
+          <button (click)="toggleCommentBox(item.id)" class="comment-button ">💬 .. comments</button>
+          <button class="share-btn mewo" (click)="shareOnFacebook(item.id)">
+            <i class="fab fa-facebook"></i>
+          </button>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Comments Section -->
+    <div *ngIf="commentBoxes[item.id]" class="comments-section">
+      <!-- Comment Box for Adding New Comment -->
+      <div class="comment-box">
+        <textarea [(ngModel)]="newComment" placeholder="Add a comment..." rows="2"></textarea>
+        <button (click)="submitComment(item.id)" [disabled]="!newComment.trim()">Comment</button>
+      </div>
+
+      <!-- Existing Comments -->
+      <div class="comment-list">
+        <div class="comment" *ngFor="let comment of comments[item.id]">
+          <div class="comment-user">{{comment.userName}}</div>
+          <div class="comment-text">{{comment.content}}</div>
+          <button (click)="toggleReplayBox(comment.id)" class="btn">💬 .. replays</button>
+
+
+          <!-- Replies Section -->
+          <div class="reply-list" *ngIf="replies[comment.id]">
+            <div class="reply" *ngFor="let reply of replies[comment.id]">
+              <div class="reply-user">{{reply.userName}}</div>
+              <div class="reply-text">{{reply.content}}</div>
+            </div>
+          </div>
+
+          <!-- Reply Box -->
+          <div class="reply-box">
+            <textarea [(ngModel)]="newReply" placeholder="Add a reply..." rows="1"></textarea>
+            <button (click)="submitReply(comment.id)" [disabled]="!newReply.trim()">Reply</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+}
+
+<!-- Floating Action Button for Add Page -->
+<button (click)="navigateToAddPage()" class="fab-button">
+  <i class="fa fa-plus"></i>
+</button>

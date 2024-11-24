@@ -1,0 +1,70 @@
+<form #addanimal="ngForm" (ngSubmit)="addAnimal(addanimal.value)" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+  <!-- CSRF Token (if needed) -->
+  <h2 style="text-align: center; margin-bottom: 20px;">Add Animal</h2>
+
+  <div class="form-container">
+    <!-- Title Field -->
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Title" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Animal Name</label>
+      <input type="text" id="Title" name="Name" ngModel class="form-control" required="required" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Title-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Shelter" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Shelter</label>
+      <select id="Shelter" name="shelterId" ngModel class="form-control" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <option *ngFor="let shelter of shelters" [value]="shelter.shelterId">{{ shelter.name }}</option>
+      </select>
+      <span class="text-danger" id="Shelter-error"></span>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Category" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Category</label>
+      <select id="Category" name="categoryId" ngModel class="form-control" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.species }}</option>
+      </select>
+      <span class="text-danger" id="Category-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Title" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">temperament</label>
+      <input type="text" id="Title" name="Temperament" ngModel class="form-control" required="required" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Title-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Title" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">breed</label>
+      <input type="text" id="Title" name="Breed" ngModel class="form-control" required="required" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Title-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Title" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Age</label>
+      <input type="text" id="Title" name="Age" ngModel  class="form-control" required="required" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Title-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Title" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Size</label>
+      <input type="text" id="Title" name="Size" ngModel class="form-control" required="required" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Title-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Title" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">specialneeds</label>
+      <input type="text" id="Title" name="SpecialNeeds" ngModel class="form-control" required="required" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Title-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="Title" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Adoption Status</label>
+      <input type="text" id="Title" name="AdoptionStatus" ngModel class="form-control" required="required" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Title-error" style="color: red; font-size: 0.875em;"></span>
+    </div>
+    <div class="form-group" style="margin-bottom: 15px;">
+      <label for="ImageUrl" class="form-label" style="display: block; font-weight: bold; margin-bottom: 5px;">Main Image</label>
+      <input type="file" id="ImageUrl" (change)="changeImage($event)" class="form-control" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+      <span class="text-danger" id="Image-error"></span>
+    </div>
+
+
+    <!-- Submit Button -->
+    <div class="form-group" style="text-align: center;">
+      <button type="submit" class="btn btn-primary" style="padding: 10px 20px; background-color: #007bff; border: none; border-radius: 5px; color: white; font-size: 1em; cursor: pointer;">Add</button>
+    </div>
+  </div>
+</form>

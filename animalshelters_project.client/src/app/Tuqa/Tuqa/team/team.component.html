@@ -1,0 +1,49 @@
+<section class="header-inner bg-dark text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12" >
+        <ol class="breadcrumb mb-0 p-0">
+        </ol>
+        <h2 class="inner-banner-title text-white" style="background-color:black">Our Team</h2> <!-- Ensure the title stands out -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="space-ptb video">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="section-title text-center">
+          <h2 class="title">A professional & friendly care provider</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Team member loop -->
+      <div class="col-md-4" *ngFor="let member of team">
+        <div class="team card border-0 shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="team-image">
+            <img class="img-fluid rounded-circle" [src]="member.imageUrl" alt="{{ member.name }}">
+          </div>
+          <div class="team-detail text-center mt-4">
+            <h4 class="team-title mb-2">{{ member.name }}</h4>
+            <span class="team-label text-muted">{{ member.role }}</span>
+
+            <!-- Social links -->
+            <div class="team-social mt-3">
+              <ul class="list-inline">
+                <li class="list-inline-item" *ngFor="let social of member.social">
+                  <a [href]="social.link" target="_blank" class="social-link p-2 rounded-circle text-white" [style.background-color]="getSocialColor(social.platform)">
+                    <i [class]="'fab fa-' + social.platform"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of team member loop -->
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section class="header-inner bg-dark text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 ">
+
+        <h2 class="inner-banner-title">Reset Password</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="login-container">
+  <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="otp">Enter the code sent to your email:</label>
+      <input type="text"
+             class="form-control"
+             id="otp"
+             formControlName="otp"
+             placeholder="Enter code"
+             required
+             [ngClass]="{
+          'is-invalid': otpForm.get('otp')?.invalid && otpForm.get('otp')?.touched
+        }" />
+      <div *ngIf="otpForm.get('otp')?.invalid && otpForm.get('otp')?.touched" class="error-message">
+        Please enter a valid code.
+      </div>
+    </div>
+
+    <div *ngIf="resetError" class="alert alert-danger">
+      {{ resetError }}
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary w-100"
+            style="background-color: #fcdb02 !important"
+            [disabled]="isLoading || otpForm.invalid">
+      <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Verify Code
+    </button>
+
+    <button type="button" class="btn btn-secondary w-100 mt-2" routerLink="/login">
+      Back to Login
+    </button>
+  </form>
+</div>

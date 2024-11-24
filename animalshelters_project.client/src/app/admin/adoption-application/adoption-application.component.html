@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Adoption Applications</h2>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Applicant Name</th>
+        <th>Animal Name</th>
+        <th>Adoption Notes</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let app of application">
+        <td>{{ app.applicantName }}</td>
+        <td>{{ app.animalName }}</td>
+        <td>
+          <button class="btn btn-info" (click)="openModal(app)">More Information</button>
+        </td>
+        <td>
+          <button class="btn btn-success" (click)="acceptApplication(app.applicationId)">Accept</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Custom Modal for Adoption Notes -->
+  <div class="custom-modal" *ngIf="showModal">
+    <div class="custom-modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h3>Adoption Notes</h3>
+      <p>{{ selectedApplication?.adoptionNotes }}</p>
+    </div>
+  </div>
+</div>
